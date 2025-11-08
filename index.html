@@ -1,12 +1,17 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ASHTonishing Adventures & Travel — Family Getaways</title>
-  <meta name="description" content="Family-focused travel planning specializing in Disney, Universal, and Margaritaville — magical getaways planned just for you." />
+  <meta name="description" content="Family-focused travel planning specializing in Disney, Universal, and Margaritaville — magical getaways planned just for you.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -50,9 +55,7 @@
           <span class="pill">Margaritaville Expert</span>
         </div>
       </div>
-      <div class="hero-graphic" aria-hidden="true">
-        <!-- Optional decorative illustration area -->
-      </div>
+      <div class="hero-graphic" aria-hidden="true"></div>
     </section>
 
     <section id="why" class="container why">
@@ -62,7 +65,7 @@
       <div class="cards">
         <article class="card">
           <h3>Disney & Beyond</h3>
-          <p>Park strategy, dining reservations, and magic-making extras so you spend less time waiting and more time smiling.From Park hopping to cruises and even custom destinations like Aulani, we cheers to all the ears</p>
+          <p>Park strategy, dining reservations, and magic-making extras so you spend less time waiting and more time smiling. From Park hopping to cruises and even custom destinations like Aulani, we cheers to all the ears.</p>
         </article>
         <article class="card">
           <h3>Universal Thrills</h3>
@@ -83,19 +86,19 @@
       <h2>Featured Getaways</h2>
       <div class="destination-grid">
         <div class="dest">
-          <div class="dest-img" style="background-image:linear-gradient( to bottom right, rgba(0,0,0,.15), rgba(0,0,0,.35) ), url('assets/disney-placeholder.jpg');"></div>
+          <div class="dest-img" style="background-image: linear-gradient(to bottom right, rgba(0,0,0,.15), rgba(0,0,0,.35)), url('assets/disney-placeholder.jpg');"></div>
           <h4>Walt Disney World</h4>
           <p>Tailored park days and dining magic for every age.</p>
         </div>
 
         <div class="dest">
-          <div class="dest-img" style="background-image:linear-gradient( to bottom right, rgba(0,0,0,.15), rgba(0,0,0,.35) ), url('assets/universal-placeholder.jpg');"></div>
+          <div class="dest-img" style="background-image: linear-gradient(to bottom right, rgba(0,0,0,.15), rgba(0,0,0,.35)), url('assets/universal-placeholder.jpg');"></div>
           <h4>Universal Orlando</h4>
           <p>Epic thrills and family shows with planning to match.</p>
         </div>
 
         <div class="dest">
-          <div class="dest-img" style="background-image:linear-gradient( to bottom right, rgba(0,0,0,.15), rgba(0,0,0,.35) ), url('assets/margaritaville-placeholder.jpg');"></div>
+          <div class="dest-img" style="background-image: linear-gradient(to bottom right, rgba(0,0,0,.15), rgba(0,0,0,.35)), url('assets/margaritaville-placeholder.jpg');"></div>
           <h4>Margaritaville Resorts</h4>
           <p>Beachside relaxation with a side of fun and live entertainment.</p>
         </div>
@@ -114,16 +117,11 @@
 
     <section id="contact" class="contact container">
       <h2>Ready to plan?</h2>
-      <p class="muted">
-    Click below to tell us about your travel plans — we’ll take care of the rest!
-    </p>
-
-    <div class="form-actions">
-      <a href="https://forms.cloud.microsoft/r/k4i9nptUgK" target="_blank" class="btn btn-primary">
-      Request a Free Quote
-      </a>
-    </div>
-  </section>
+      <p class="muted">Click below to tell us about your travel plans — we’ll take care of the rest!</p>
+      <div class="form-actions">
+        <a href="https://forms.cloud.microsoft/r/k4i9nptUgK" target="_blank" class="btn btn-primary">Request a Free Quote</a>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -137,6 +135,21 @@
     </div>
   </footer>
 
+  <!-- JS -->
   <script src="script.js"></script>
+  <script>
+    // Mobile menu toggle
+    const navToggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('primary-nav');
+
+    navToggle.addEventListener('click', () => {
+      const expanded = navToggle.getAttribute('aria-expanded') === 'true' || false;
+      navToggle.setAttribute('aria-expanded', !expanded);
+      nav.classList.toggle('active');
+    });
+
+    // Auto year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

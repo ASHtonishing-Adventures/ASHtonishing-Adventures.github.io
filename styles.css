@@ -12,7 +12,7 @@
   --transition: 300ms;
 }
 
-/* ===== Base Reset ===== */
+/* ===== Base Reset & Typography ===== */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -33,14 +33,43 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* ===== Containers ===== */
+/* Screen reader only (hidden visually) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ===== Containers & Utilities ===== */
 .container {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 1.25rem;
 }
 
-/* ===== Header ===== */
+.btn {
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-align: center;
+  white-space: normal;
+  line-height: 1.3;
+  transition: all var(--transition);
+  text-decoration: none; /* Ensure buttons aren't underlined */
+}
+
+.btn-primary {
+  background: var(--brand-red);
+  color: white;
+}
+
+/* ===== Header & Brand Identity ===== */
 .site-header {
   background-color: var(--brand-dark);
   color: white;
@@ -67,6 +96,9 @@ body {
   display: flex;
   align-items: center;
   color: white;
+  text-decoration: none; /* ⭐ FIX: Remove underline from brand title link */
+  /* This margin helps push the brand away from the mobile toggle on small screens */
+  margin-right: 1.5rem; 
 }
 
 .brand span {
@@ -74,6 +106,8 @@ body {
   font-size: 1.5rem;
   color: var(--brand-red);
   margin-left: 0.5rem;
+  /* If the underline persists, uncomment the next line: */
+  /* text-decoration: none; */
 }
 
 .logo {
@@ -81,7 +115,7 @@ body {
   width: auto;
 }
 
-/* ===== Navigation ===== */
+/* ===== Navigation (Desktop Default) ===== */
 .primary-nav ul {
   display: flex;
   gap: 1rem;
@@ -94,6 +128,7 @@ body {
   padding: 0.5rem 0.75rem;
   border-radius: 8px;
   transition: background 0.3s, color 0.3s;
+  text-decoration: none; /* Ensure nav links don't have underlines */
 }
 
 .primary-nav a:hover {
@@ -101,15 +136,17 @@ body {
   color: var(--brand-light-gold);
 }
 
-/* ===== Mobile Nav Toggle ===== */
+/* ===== Mobile Nav Toggle (Hidden by Default) ===== */
 .nav-toggle {
-  display: none;
+  display: none; /* Hidden on desktop */
   background: none;
   border: none;
   cursor: pointer;
   position: relative;
   width: 28px;
   height: 22px;
+  z-index: 1100; /* Ensure it's clickable above the navigation */
+  padding: 0; /* Clean up padding */
 }
 
 .hamburger, .hamburger::before, .hamburger::after {
@@ -133,19 +170,6 @@ body {
 
 .hamburger::after {
   top: 8px;
-}
-
-/* Screen reader only (hidden visually) */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
 }
 
 /* ===== Hero Section ===== */
@@ -179,19 +203,56 @@ body {
   gap: 1rem;
 }
 
-.btn {
-  padding: 0.8rem 1.5rem;
-  border-radius: 8px;
-  font-weight: 600;
-  text-align: center;
-  white-space: normal;
-  line-height: 1.3;
-  transition: all var(--transition);
-}
+/* ======================================= */
+/* ===== Media Queries (Mobile View) ===== */
+/* ======================================= */
+@media (max-width: 768px) {
+    /* Show the Mobile Toggle Button */
+    .nav-toggle {
+        display: block; 
+    }
 
-.btn-primary {
-  background: var(--brand-red);
-  color: white;
-}
+    /* Hide the Desktop Navigation Menu by default */
+    .primary-nav {
+        display: none; 
+        
+        /* Mobile menu overlay styling */
+        position: fixed;
+        top: 70px; /* Below the header */
+        left: 0;
+        width: 100%;
+        height: calc(100% - 70px);
+        background-color: var(--brand-dark); 
+        padding: 2rem;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        overflow-y: auto;
+    }
+    
+    /* Make the menu visible when the 'is-open' class is added by JavaScript */
+    .primary-nav.is-open {
+        display: block; /* Use block or flex */
+        /* You might need 'display: flex;' if you want to use align-items */
+    }
 
-.btn-pr
+    /* Stack list items vertically */
+    .primary-nav ul {
+        flex-direction: column; 
+        gap: 1.5rem;
+        padding: 0; /* Remove potential default list padding */
+    }
+    
+    /* Style the links for easier mobile tapping */
+    .primary-nav a {
+        font-size: 1.25rem;
+        width: 100%;
+        display: block; /* Make the link fill the width */
+        text-align: center;
+        padding: 1rem;
+    }
+    
+    /* Center the brand logo/text */
+    .header-inner {
+        /* Optional: Change alignment if you want the logo centered */
+        /* justify-content: center; */
+    }
+}

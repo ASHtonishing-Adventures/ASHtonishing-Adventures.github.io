@@ -26,9 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Simple testimonial rotation - you can replace with richer dataset
   const testimonials = [
-    {text: "Ashley planned our Disney trip down to the minute — no stress, all smiles. Our kids can't stop talking about it!", author: "— The Martinez Family"},
-    {text: "We loved our Margaritaville escape. Ashley found the perfect laid-back resort and family activities.", author: "— The Parkers"},
-    {text: "Universal was incredible — VIP tips and ride strategy made all the difference.", author: "— The Chen Family"}
+    {text: "Ashley planned our Disney trip down to the minute — no stress, all smiles. Our kids can't stop talking about it!", author: "— The Strusz Family"},
   ];
   let tIndex = 0;
   const tText = document.getElementById('testimonial-text');
@@ -40,25 +38,5 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   setInterval(rotateTestimonial, 6500);
 
-  // Contact form handling (client-side only)
-  const form = document.getElementById('contact-form');
-  const feedback = document.getElementById('form-feedback');
-  const mailtoBtn = document.getElementById('mailto-btn');
-
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    const data = new FormData(form);
-    // Basic validation already required in markup; show friendly message
-    feedback.hidden = false;
-    feedback.textContent = "Thanks! Your request was received. We'll email you within 48 hours to begin planning.";
-    form.reset();
-
-    // TODO: replace with real submission to your server or CRM
-  });
-
-  mailtoBtn.addEventListener('click', function () {
-    const subject = encodeURIComponent('Travel planning request');
-    const body = encodeURIComponent('Hi Ashley,\n\nI would like to start planning a trip. Please contact me.\n\nThanks,\n');
-    window.location.href = `mailto:your-email@example.com?subject=${subject}&body=${body}`;
-  });
+   });
 });

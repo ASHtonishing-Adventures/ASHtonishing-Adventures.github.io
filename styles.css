@@ -23,7 +23,14 @@ body{
 
 .container{max-width:var(--max-width);margin:0 auto;padding:1.25rem}
 
-.site-header{background:transparent;padding:.75rem 0;position:fixed;top:0;z-index:40}
+.site-header{
+  background-color:#0f2240;
+  padding:.75rem 0;
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:1000,
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);}
 .header-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem}
 .brand{display:flex;align-items:center;text-decoration:none}
 .logo{height:72px;width:auto;display:block}

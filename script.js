@@ -1,4 +1,3 @@
-// Basic interactivity: mobile nav, testimonial rotation, form handling
 document.addEventListener('DOMContentLoaded', function () {
   // year in footer
   document.getElementById('year').textContent = new Date().getFullYear();
@@ -6,9 +5,15 @@ document.addEventListener('DOMContentLoaded', function () {
   // Mobile nav toggle
   const navToggle = document.getElementById('nav-toggle');
   const primaryNav = document.getElementById('primary-nav');
+
   navToggle.addEventListener('click', () => {
     const expanded = navToggle.getAttribute('aria-expanded') === 'true';
     navToggle.setAttribute('aria-expanded', String(!expanded));
+
+    // Toggle .active for CSS visibility
+    primaryNav.classList.toggle('active');
+
+    // Update aria-hidden for accessibility
     const hidden = primaryNav.getAttribute('aria-hidden') === 'false';
     primaryNav.setAttribute('aria-hidden', String(expanded));
   });
@@ -24,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // Simple testimonial rotation - you can replace with richer dataset
+  // Simple testimonial rotation
   const testimonials = [
     {text: "Ashley planned our Disney trip down to the minute — no stress, all smiles. Our kids can't stop talking about it!", author: "— The Strusz Family"},
   ];
@@ -37,6 +42,4 @@ document.addEventListener('DOMContentLoaded', function () {
     tAuthor.textContent = testimonials[tIndex].author;
   }
   setInterval(rotateTestimonial, 6500);
-
-   });
 });

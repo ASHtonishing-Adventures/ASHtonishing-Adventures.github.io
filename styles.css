@@ -23,7 +23,7 @@ body{
 
 .container{max-width:var(--max-width);margin:0 auto;padding:1.25rem}
 
-.site-header{background:transparent;padding:.75rem 0;position:sticky;top:0;z-index:40}
+.site-header{background:transparent;padding:.75rem 0;position:fixed;top:0;z-index:40}
 .header-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem}
 .brand{display:flex;align-items:center;text-decoration:none}
 .logo{height:72px;width:auto;display:block}
